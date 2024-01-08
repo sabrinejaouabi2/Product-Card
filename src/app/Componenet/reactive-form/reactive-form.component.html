@@ -1,0 +1,9 @@
+<form [formGroup]="myForm" (ngSubmit)="OnSubmit()">
+    <div formArrayName="usergroupe">
+
+        <input type="text" id="name"  formControlName=0>
+        <input type="email" formControlName=1>
+    </div>
+
+<button>submit</button>
+</form>

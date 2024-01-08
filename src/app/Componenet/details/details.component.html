@@ -1,0 +1,15 @@
+
+<div class="container">
+    <h2>Product Details</h2>
+    <div *ngIf="product">
+        <p><strong>Id:</strong> {{id}}</p>
+
+      <p><strong>Name:</strong> {{ product.Name }}</p>
+      <p><strong>Price:</strong> {{ product.Price }}</p>
+      <p><strong>Description:</strong> {{ product.Description }}</p>
+    </div>
+    <div *ngIf="!product">
+      <p>No product details available.</p>
+    </div>
+  </div>
+  

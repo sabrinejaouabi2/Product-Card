@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" *ngFor="let item of cartItems">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.Name }}</h5>
+          <p class="card-text">Price: {{ item.Price }}</p>
+          <p class="card-text">Description: {{ item.Description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

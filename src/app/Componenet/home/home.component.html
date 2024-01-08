@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngFor="let product of products">
+        <fieldset style="font-weight: bold ;border : 1px solid #000; padding: 10px;" >
+            <legend >Id Product: {{ product.id }}</legend>
+            <ul>
+                <li><strong>Price:</strong> {{ product.Price }}</li>
+            </ul>
+        </fieldset>
+        <button (click)="addToCart(product)">Buy</button>
+        <button [routerLink]="['/details', product.id]">Details</button> <!-- Redirection vers DetailsComponent avec l'ID du produit -->
+        <button (click)="deleteProduct(product.id)">Delete</button>
+    </div>
+    <div class="alert alert-success" *ngIf="successMessage">
+        {{ successMessage }}
+      </div>
+</div>

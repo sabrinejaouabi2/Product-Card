@@ -1,0 +1,70 @@
+
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="add(f)">
+        <!-- Champ Name -->
+        <div class="mb-3">
+            <label class="form-label">
+                 Name
+            </label>
+            <input class="form-control" name="ProducttName" type="text"
+            [(ngModel)]="product.Name" required  #ProducttName="ngModel">
+            <!-- touched : {{firstName.touched}}<br>
+            untouched : {{firstName.untouched}}<br>
+            dirty : {{firstName.dirty}}<br>
+            pristine : {{firstName.pristine}}<br>
+            valid : {{firstName.valid}}<br>
+            invalid : {{firstName.invalid}}<br>
+            Errors : {{firstName.errors|json}}-->
+            <div class="alert alert-danger"
+            *ngIf="ProducttName.invalid && (ProducttName.touched || ProducttName.dirty)">
+                    <div *ngIf="ProducttName.errors!['required']">ProductName is required !</div>
+                   
+            </div>
+        </div>
+    
+        <div >
+            <label class="form-label">Price</label>
+            <input
+                type="text"
+                [(ngModel)]="product.Price" required  #productPrice="ngModel" 
+                 pattern="[0-9]*"
+                name="productPrice"
+                id="productPrice"
+                class="form-control"
+                placeholder=""
+                aria-describedby="helpId"
+            />
+            <div class="alert alert-danger"
+            *ngIf="productPrice.invalid && (productPrice.touched || productPrice.dirty)">
+                    <div *ngIf="productPrice.errors!['required']">ProductName is required !</div>
+                    <div *ngIf="productPrice.errors!['pattern']">ProductName is number just  !</div>
+            </div>
+
+        </div>
+    
+        <label  class="form-label">Description</label>
+        <input
+            type="text"
+            [(ngModel)]="product.Description" #productDescription="ngModel"  minlength="10"
+            name="productDescription"
+            id="productDescription"
+            class="form-control"
+            placeholder=""
+            aria-describedby="helpId"
+        />
+        <div class="alert alert-danger"
+        *ngIf="productDescription.invalid && (productDescription.touched || productDescription.dirty)">
+                <div *ngIf="productDescription.errors!['required']">productDescription is required !</div>
+                <div *ngIf="productDescription.errors!['minlength']">productDescription min length 10 !</div>
+        </div>
+
+    <br>
+        <div class="text-center"> <!-- Utilisation de la classe text-center pour centrer le bouton -->
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add Product</button>
+        </div>
+    <!-- Message de succès -->
+<div class="alert alert-success" *ngIf="successMessage">
+    {{ successMessage }}
+  </div>
+    </form>
+</div>
